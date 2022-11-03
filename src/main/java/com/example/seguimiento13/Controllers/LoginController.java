@@ -3,7 +3,7 @@ package com.example.seguimiento13.Controllers;
 import com.example.seguimiento13.HelloApplication;
 import com.example.seguimiento13.model.FileUtil;
 import com.example.seguimiento13.model.Password;
-import com.example.seguimiento13.model.safeData;
+import com.example.seguimiento13.model.SafeData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -65,12 +65,12 @@ public class LoginController {
     @FXML
     void login(ActionEvent event) throws IOException {
         String password = "";
-        password += firstTF.getText();
-        password += secondTF.getText();
-        password += thirdTF.getText();
-        password += fourthTF.getText();
-        password += fifthTF.getText();
-        password += sixthTF.getText();
+            password += firstTF.getText();
+            password += secondTF.getText();
+            password += thirdTF.getText();
+            password += fourthTF.getText();
+            password += fifthTF.getText();
+            password += sixthTF.getText();
 
         /*if(safeData.getInstance().getPassword().getPassword().equals("")){
             safeData.getInstance().setPassword(new Password(password));
@@ -79,8 +79,8 @@ public class LoginController {
             currentStage.hide();
         }else */
         String contra = FileUtil.readFile();
-        if (password.equals(contra)){
-            safeData.getInstance().setPassword( new Password(password));
+        if (password.equals(contra) && !firstTF.getText().equals("")&& !secondTF.getText().equals("")&& !thirdTF.getText().equals("")&& !fourthTF.getText().equals("")&& !fifthTF.getText().equals("")&& !sixthTF.getText().equals("")){
+            //safeData.getInstance().setPassword( new Password(password));
             HelloApplication.showWindow("SafeContent.fxml");
 
             Stage currentStage = (Stage) firstTF.getScene().getWindow();

@@ -2,6 +2,7 @@ package com.example.seguimiento13.Controllers;
 
 import com.example.seguimiento13.HelloApplication;
 import com.example.seguimiento13.model.FileUtil;
+import com.example.seguimiento13.model.SafeData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +33,8 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //Los fxml estan diferentes de nulo
-        String current = FileUtil.readFileTA();
+        String current = SafeData.getInstance().getInfo().getInformation();
+        //String current = FileUtil.readFileTA();
         infoTA.setText(current);
     }
 
@@ -41,6 +43,7 @@ public class HelloController implements Initializable {
     void Change(ActionEvent event){
         String info = infoTA.getText();
         FileUtil.fillTA(info);
+        SafeData.getInstance().getInfo().setInformation(info);
         HelloApplication.showWindow("newPass.fxml");
         Stage currentStage = (Stage) infoTA.getScene().getWindow();
         currentStage.hide();
@@ -50,6 +53,7 @@ public class HelloController implements Initializable {
     void Close(){
         String info = infoTA.getText();
         FileUtil.fillTA(info);
+        SafeData.getInstance().getInfo().setInformation(info);
         HelloApplication.showWindow("Login.fxml");
         Stage currentStage = (Stage) infoTA.getScene().getWindow();
         currentStage.hide();

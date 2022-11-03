@@ -3,7 +3,7 @@ package com.example.seguimiento13.Controllers;
 import com.example.seguimiento13.HelloApplication;
 import com.example.seguimiento13.model.FileUtil;
 import com.example.seguimiento13.model.Password;
-import com.example.seguimiento13.model.safeData;
+import com.example.seguimiento13.model.SafeData;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -128,7 +128,7 @@ public class NewPassController {
             currentStage.hide();
         }else */
         String contra = FileUtil.readFile();
-        if (password.equals(contra)){
+        if (password.equals(contra) && !firstActualTF.getText().equals("")&& !secondActualTF.getText().equals("")&& !thirdActualTF.getText().equals("")&& !fourthActualTF.getText().equals("")&& !fifthActualTF.getText().equals("")&& !sixthActualTF.getText().equals("")){
             String newPass ="";
             newPass += firstNewTF.getText();
             newPass += seconNewTF.getText();
@@ -136,8 +136,13 @@ public class NewPassController {
             newPass += fourthNewTF.getText();
             newPass += fifthNewTF.getText();
             newPass += sixthNewTF.getText();
-            if(newPass.length()>5){
+            if(newPass.length()==6 && !firstNewTF.getText().equals("")&& !seconNewTF.getText().equals("")&& !thirdNewTF.getText().equals("")&& !fourthNewTF.getText().equals("")&& !fifthNewTF.getText().equals("")&& !sixthNewTF.getText().equals("")){
                 FileUtil.fillPassword(newPass);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("NUEVA CONTRASEÑA");
+                alert.setHeaderText("MUY BIEN");
+                alert.setContentText("CONTRASEÑA GUARDADA CON EXITO");
+                alert.showAndWait();
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
