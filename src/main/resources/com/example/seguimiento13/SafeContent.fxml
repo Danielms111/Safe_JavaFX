@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seguimiento13.Controllers.HelloController">
+   <children>
+      <Label fx:id="cajaLBL" layoutX="218.0" layoutY="27.0" text="CAJA FUERTE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="messageLBL" layoutX="163.0" layoutY="85.0" text="Este es el contenido de la caja fuerte">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="changeBTN" layoutX="53.0" layoutY="327.0" mnemonicParsing="false" onAction="#Change" prefHeight="60.0" prefWidth="170.0" style="-fx-background-color: #0000FF;" text="Cambiar pass" textFill="#ece6e6" />
+      <Button fx:id="closeBTN" layoutX="383.0" layoutY="327.0" mnemonicParsing="false" onAction="#Close" prefHeight="60.0" prefWidth="170.0" style="-fx-background-color: #0000FF;" text="Cerrar caja fuerte" textFill="#fcfafa" />
+      <TextArea fx:id="infoTA" layoutX="66.0" layoutY="111.0" prefHeight="200.0" prefWidth="466.0" />
+   </children>
+</AnchorPane>
